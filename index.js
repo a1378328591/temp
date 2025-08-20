@@ -5,7 +5,7 @@ dotenv.config();
 async function main() {
   try {
     const providerAddress = process.env.PROVIDER_ADDRESS; // 固定 provider
-    const userInput = '从奖池里提现0.650G';
+    const userInput = '从奖池里提现0.010G';
     
     //系统提示词写死 和 userInput 暂时写死吧 , 暂未带入上下文记忆
     const history = [
@@ -40,4 +40,12 @@ async function main() {
   }
 }
 
-main();
+// 顺序执行 10 次
+async function runSequentially(times) {
+  for (let i = 1; i <= times; i++) {
+    await main(i); // 等待本次完成再执行下一次
+  }
+}
+
+// 启动
+runSequentially(10);

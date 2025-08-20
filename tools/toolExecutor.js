@@ -21,7 +21,7 @@ const handleToolCalls = async (toolCalls) => {
       throw err
     }
 
-    console.log('toolFunctions', toolFunctions)
+    //console.log('toolFunctions', toolFunctions)
     const toolFn = toolFunctions[fnName]
     if (!toolFn) {
       console.error(`❌ Tool function ${fnName} not found`)

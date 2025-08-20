@@ -42,7 +42,7 @@ const openai = new OpenAI({
 console.log('--------------------------------------------------')
 console.log('tools', tools)
 console.log('providerAddress', providerAddress)
-console.log('history:', history)
+//console.log('history:', history)
 console.log('messages', messages)
 console.log('--------------------------------------------------')
 const stream = await openai.chat.completions.create(
@@ -52,6 +52,8 @@ const stream = await openai.chat.completions.create(
     stream: true,
     tool_choice: 'auto',
     tools,
+    temperature: 0.3,
+    top_p: 1
   },
   {
     headers: {
